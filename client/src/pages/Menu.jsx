@@ -39,7 +39,7 @@ const Menu = () => {
     fetchMenuItems();
   }, [dispatch]);
 
-  const filteredItems = items.filter((item) => {
+  const filteredItems = items?.filter((item) => {
     const matchesSearch = item.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
@@ -72,7 +72,7 @@ const Menu = () => {
           <select
             value={filters.category}
             onChange={(e) =>
-              setFilters({ ...filters, category: e.target.value })
+              setFilters({ ..?.filters, category: e.target.value })
             }
             className="p-2 bg-gray-200 rounded-lg text-sm text-gray-700"
           >
@@ -83,7 +83,7 @@ const Menu = () => {
           </select>
           <select
             value={filters.isVeg}
-            onChange={(e) => setFilters({ ...filters, isVeg: e.target.value })}
+            onChange={(e) => setFilters({ ..?.filters, isVeg: e.target.value })}
             className="p-2 bg-gray-200 rounded-lg text-sm text-gray-700"
           >
             <option value="">Veg/Non</option>
@@ -93,7 +93,7 @@ const Menu = () => {
           <select
             value={filters.inStock}
             onChange={(e) =>
-              setFilters({ ...filters, inStock: e.target.value })
+              setFilters({ ..?.filters, inStock: e.target.value })
             }
             className="p-2 bg-gray-200 rounded-lg text-sm text-gray-700"
           >

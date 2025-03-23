@@ -47,7 +47,7 @@ const AdminMenu = () => {
     fetchMenuItems();
   }, [dispatch]);
 
-  const filteredItems = items.filter((item) => {
+  const filteredItems = items?.filter((item) => {
     const matchesSearch = item.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
@@ -93,7 +93,7 @@ const AdminMenu = () => {
   const removeVariant = (index) => {
     setFormData((prev) => ({
       ...prev,
-      variants: prev.variants.filter((_, i) => i !== index),
+      variants: prev.variants?.filter((_, i) => i !== index),
     }));
   };
 
@@ -154,7 +154,7 @@ const AdminMenu = () => {
     if (!window.confirm("Delete this item?")) return;
     try {
       await axios.delete(`${import.meta.env.VITE_API_URL}/menu/${id}`);
-      dispatch(setMenuItems(items.filter((item) => item._id !== id)));
+      dispatch(setMenuItems(items?.filter((item) => item._id !== id)));
       toast.success("Item deleted!");
     } catch (error) {
       toast.error("Failed to delete item!");

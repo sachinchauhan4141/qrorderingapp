@@ -56,7 +56,7 @@ const Kitchen = () => {
     }
   };
 
-  const filteredOrders = orders.filter((order) => {
+  const filteredOrders = orders?.filter((order) => {
     const matchesSearch = order.tableNumber
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
